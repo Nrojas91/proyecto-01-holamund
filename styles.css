@@ -85,6 +85,18 @@ main{
     gap: 20px;
 }
 
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+li{
+    background: #eee;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 /* --- DISENO RESPONSIVE (tablets y PCs) ---*/
 @media (min-width: 768px){
     /*Todo lo ue pongas aqui, solo se aplicara si la pantalla mide 768px o mas */
