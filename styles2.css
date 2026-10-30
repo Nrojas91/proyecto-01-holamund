@@ -24,12 +24,14 @@ body{
     box-shadow: 0 10px 20px rgb(0 0 0 / 0.3);/*sombra para dar efecto 3D*/
     width: 90%; /*En moviles ocupara el 90% de la pantalla*/
     max-width: 500px; /* En PC no crecera mas que 500px*/
+    animation: entrada-suave 0.8s ease-out;/*Nombre, duracion y curva*/
 }
 
 h1{
     text-align: center;
     color: #333;
     margin-bottom: 20px;
+    animation: pulso 2s infinite;
 }
 
 /* 4. El formulario: Input y boton lado a lado */
@@ -55,10 +57,13 @@ button{
     border-radius: 5px;
     cursor: pointer; /* Manito al pasar el mouse*/
     font-weight: bold;
+    transition: all 0.3s ease; /*Anima TODOS los cambios en 0.3s suavemente*/
 }
 
 button:hover{
     background-color: #2980b9;/*Azul mas oscuro al pasar el mouse*/
+    transform: scale(1.05); /*Crece un 5%*/
+    box-shadow: 0 4px 8px rgb(0 0 0 / 0.3); /*le da sombra*/
 }
 
 /* 5. La Lista de Tareas */
@@ -71,10 +76,34 @@ li{
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
-    border-left: 5px solid #3498db; /* Linea azul a la izquierda*/
+    border-left: 5px solid #afd620; /* Linea azul a la izquierda*/
 
     /* FLEXBOX AQUI: Para separar el texto del boton de eliminar */
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/*Definimos la animacion llamada 'entrada' */
+@keyframes entrada-suave {
+    0% {
+        opacity: 0;/*invisible*/;
+        transform: translateY(30px); /*empieza 30px mas abajo*/
+    }
+    100%{
+        opacity: 1; /*totalmente visible*/
+        transform: translateY(0);/*en su posicion original*/
+    }
+}
+
+@keyframes pulso {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.05);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
