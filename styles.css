@@ -56,7 +56,7 @@ section{
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgb(0 0 0 / 0.1); /*una sombra suave*/
-    flex: 1;
+    /*flex: 1;*/
 }
 
 article{
@@ -81,5 +81,25 @@ footer{
 
 main{
     display: flex;
+    flex-direction: column;/*En moviles, por defecto, que sea en columna */
     gap: 20px;
+}
+
+/* --- DISENO RESPONSIVE (tablets y PCs) ---*/
+@media (min-width: 768px){
+    /*Todo lo ue pongas aqui, solo se aplicara si la pantalla mide 768px o mas */
+
+    main {
+        flex-direction: row; /*vuelve a ponerlos lado a lado*/
+    }
+
+    section {
+        flex: 1; /*Hace que ambas secciones ocupen el mismo ancho*/
+    }
+}
+
+@media (max-width: 767px){
+    header{
+        padding: 15px;
+    }
 }
