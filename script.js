@@ -58,13 +58,22 @@ let carrito1 = [
     { nombre: "Escudo", precio: 50}
 ];
 
+//1. BUSCAMOS SI HAY UNA PARTIDA GUARDADA
+// Si existe algo guardado en localStorage con el nombre 'carritoGuardado', lo leemos.
+// Si no existe (primera vez), usamos un array vacio [].
+let carrito = JSON.parse(localStorage.getItem('carritoGuardado')) || [];
+
 //1. Creamos nuestro "Array" vacio (el carrito)
-let carrito = [];
+//let carrito = [];
 
 //2. Seleccionamos los elementos del DOM
 const inputProducto = document.getElementById('input-producto');
 const btnAgregar = document.getElementById('btn-agregar');
 const listaCarrito = document.getElementById('lista-carrito');
+
+//Al cargar la pagina, dibujamos lo que ya teniamos guardado
+renderizaCarrito();
+
 
 //3. Escuchamos el clic del boton
 btnAgregar.addEventListener('click', () => {
@@ -84,6 +93,9 @@ btnAgregar.addEventListener('click', () => {
     console.log("!Producto agregado");
     //Limpiamos el input para que el usuario escriba otro
     inputProducto.value = "";
+    // GUARDAMOS LA PARTIDA
+    // Cada vez que agregamos algo, actualizamos el localStorage.
+    localStorage.setItem('carritoGuardado', JSON.stringify(carrito));
 
     //4. Actualizamos la pantalla(renderizar)
     renderizaCarrito();
@@ -95,12 +107,32 @@ function renderizaCarrito(){
     listaCarrito.innerHTML = "";
 
     //Recorremos el Array usando forEach (por cada producto...)
-    carrito.forEach((producto)=>{
+    carrito.forEach((producto, index)=>{
         //Creamos un nuevo elemento de lista <li>
         const li = document.createElement('li');
         //le ponemos el texto del producto
         li.textContent = producto;
+        //NUEVO: un boton para eliminar el producto
+        const btnEliminar = document.createElement('button');
+        btnEliminar.textContent = "❌";
+        btnEliminar.style.marginLeft = "10px";
+
+        //Magia: Le decimos que al hacer click, elimine este producto especifico
+        btnEliminar.addEventListener('click', () => {
+            eliminarProducto(index);
+        });
+        li.appendChild(btnEliminar);
         // Lo insertamos dentro del <ul>
         listaCarrito.appendChild(li);
     });
+}
+
+// funcion para eliminar
+function eliminarProducto(index){
+    //.splice eliminar un elemento del array (desde el inidice, cuantos elementos.)
+    carrito.splice(index,1);
+
+    //Actualizamos el guardado y volvemos a dibujar
+    localStorage.setItem('carritoGuardado', JSON.stringify(carrito));
+    renderizaCarrito();
 }
