@@ -23,19 +23,30 @@ header {
     border-radius: 10px; /*Bordes redondeados*/
     margin-bottom: 20px;
     border-bottom: 5px solid #e74c3c;
+    /*MAGIA FLEXBOX AQUI*/
+    display: flex;
+    flex-direction: column; /*ponlos en columna en vez de fila*/
+    align-items: center; /*centra horizontalmente*/
+    text-align:  center;
 }
 
 /* 4. Estilo para los enlaces del Nav */
 nav{
     text-align: center;
     margin-bottom: 20px;
+    /* MAGIA FLEXBOX AQUI*/
+    display: flex;
+    justify-content: center; /*Centra los enlaces horizontalmente*/
+    gap: 30px; /* NUEVO Crea un espacio perfecto entre los enlaces */
 }
+
+/*Como ahora el nav usa flex, ya no necesita el margin: 0 10px; en los enlaces */
 
 nav a {
     text-decoration: none; /*quita el subrayado feo */
     color: #2980b9;
     font-weight: bold;
-    margin: 0 10px;
+    /* margin: 0 10px; */
 }
 
 /* 5. Estilo para las secciones y articulos */
@@ -45,6 +56,7 @@ section{
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgb(0 0 0 / 0.1); /*una sombra suave*/
+    flex: 1;
 }
 
 article{
@@ -65,4 +77,9 @@ footer{
 
 .tarjeta-especial{
     background-color: #ffeaa7;
+}
+
+main{
+    display: flex;
+    gap: 20px;
 }
