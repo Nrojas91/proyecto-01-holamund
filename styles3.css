@@ -1,0 +1,70 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+/*1.fondo oscuro con gradiente*/
+.fondo-gamer{
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);/*Gradiente de 3 colores*/
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/*2.La tarjeta con efecto cristal*/
+.tarjeta-neon{
+    background: rgba(255, 255, 255, 0.5); /*Blanco casi transparente*/
+    backdrop-filter: blur(10px);/*el efecto de vidrio esmerilado*/
+    border: 1px solid rgba(255, 255, 255, 0.1); /*Borde sutil*/
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    width: 300px;
+    
+    /*3.Sombra neon*/
+    box-shadow: 0 0 20px rgba(165, 10, 10, 0.3);/*Resplandor violeta*/
+
+    /*Animacion al entrar*/
+    animation: entrada-suave 0.8s ease-out;
+
+}
+
+/*4.Texto con gradiente*/
+.tarjeta-neon h2{
+    font-size: 2rem;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #fe00e9, #e20c3a);/*Gradiente azul cian*/
+    -webkit-background-clip: text; /*Recorta el fondo al texto*/
+    background-clip: text;
+    color: transparent; /*Hace el texto transparente para ver el gradiente*/
+}
+
+.tarjeta-neon p{
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/*5. Boton con Hover Epico*/
+.tarjeta-neon button{
+    padding: 10px 25px;
+    background: transparent;
+    color: #00f2fe;
+    border: 2px solid #00f2fe;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3 ease;
+}
+
+.tarjeta-neon button:hover{
+    background: #00f2fe;
+    color: #000;
+    box-shadow: 0 0 15px #00f2fe;/*efecto de luz al pasar el mouse*/
+    transform: translateY(-3px); /*Salta un poquito*/
+}
+
+@keyframes entrada-suave {
+    0% {opacity: 0; transform: translateY(30px);}
+    100% {opacity: 1; transform: translateY(0);}
+}
+
