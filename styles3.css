@@ -1,8 +1,13 @@
 *{margin: 0; padding: 0; box-sizing: border-box;}
 
+:root{
+    --color-neon: #00f2fe;
+    --color-fondo: #682e5b;
+    --sombra-gamer: 0 0 20px rgba(138, 43, 226, 0.3); 
+}
 /*1.fondo oscuro con gradiente*/
 .fondo-gamer{
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);/*Gradiente de 3 colores*/
+    background: linear-gradient(135deg, var(--color-fondo), #302b63, #24243e);/*Gradiente de 3 colores*/
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -48,8 +53,8 @@
 .tarjeta-neon button{
     padding: 10px 25px;
     background: transparent;
-    color: #00f2fe;
-    border: 2px solid #00f2fe;
+    color: var(--color-neon);
+    border: 2px solid var(--color-neon);
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
@@ -57,9 +62,9 @@
 }
 
 .tarjeta-neon button:hover{
-    background: #00f2fe;
+    background: var(--color-neon);
     color: #000;
-    box-shadow: 0 0 15px #00f2fe;/*efecto de luz al pasar el mouse*/
+    box-shadow: 0 0 15px var(--color-neon);/*efecto de luz al pasar el mouse*/
     transform: translateY(-3px); /*Salta un poquito*/
 }
 
