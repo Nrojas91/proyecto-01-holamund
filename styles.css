@@ -118,3 +118,17 @@ li{
         padding: 15px;
     }
 }
+
+/* 1. estado incial: invisible y desplazado hacia abajo */
+.revelar {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease-out; /*la animacion durara 0.8 segundos y sera suave*/
+}
+
+/* 2. estado final: visible y en su posicion original */
+.revelar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+

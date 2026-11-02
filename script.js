@@ -136,3 +136,25 @@ function eliminarProducto(index){
     localStorage.setItem('carritoGuardado', JSON.stringify(carrito));
     renderizaCarrito();
 }
+
+//1.seleccionamos todos los elementos que queremos animar
+const elementosRevelar = document.querySelectorAll('.revelar');
+
+//2. Creamos la funcion que revisa si estan visibles
+const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+        //si el elemento esta en la pantalla (isIntersecting), le agregamos la clase 'visible'
+        if(entrada.isIntersecting){
+            //le agregamos la clase 'visible' para que empiece la animacion
+            entrada.target.classList.add('visible');
+            //dejamos de observar para no volver animar si subes o bajas
+            observador.unobserve(entrada.target);
+        }
+    });
+    threshold: 0.2; // 20% del elemento visible para activar la animacion
+});
+
+// 3. Le decimos al observador que observe cada elemento
+elementosRevelar.forEach((elemento) => {
+    observador.observe(elemento);
+});
